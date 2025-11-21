@@ -1,5 +1,5 @@
 import { useState, FormEvent } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
 export default function Login() {
@@ -79,8 +79,16 @@ export default function Login() {
           </button>
         </form>
 
-        <div className="mt-6 text-center text-sm text-gray-600">
-          <p>Compte test: admin@galand-plomberie.fr / admin123</p>
+        <div className="mt-6 text-center">
+          <p className="text-sm text-gray-600 mb-3">
+            Pas encore de compte ?{' '}
+            <Link to="/register" className="text-primary-600 hover:text-primary-700 font-medium">
+              S'inscrire
+            </Link>
+          </p>
+          <p className="text-xs text-gray-500">
+            Compte test: admin@galand-plomberie.fr / admin123
+          </p>
         </div>
       </div>
     </div>

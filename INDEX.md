@@ -56,9 +56,14 @@ Bienvenue dans le système de gestion d'interventions pour l'Entreprise GALAND P
    - Bugs logiques résolus
    - Optimisations effectuées
    - Vérifications de qualité
-   - Technologies utilisées
-   - Scripts disponibles
-   - Conventions de code
+
+### 👥 Inscription
+
+7. **[INSCRIPTION.md](INSCRIPTION.md)** ✍️ Système d'inscription
+   - Page d'inscription activée
+   - Création de compte autonome
+   - Validation et sécurité
+   - Guide d'utilisation
 
 ---
 
@@ -81,6 +86,9 @@ Bienvenue dans le système de gestion d'interventions pour l'Entreprise GALAND P
 
 ### J'ai un problème
 👉 Allez à [QUICK_START.md](QUICK_START.md) section "Problèmes courants"
+
+### Je veux créer un compte
+👉 Allez à [INSCRIPTION.md](INSCRIPTION.md)
 
 ---
 
