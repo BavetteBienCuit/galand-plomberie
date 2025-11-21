@@ -1,6 +1,6 @@
 import { Router, Request, Response } from 'express';
 import bcrypt from 'bcrypt';
-import jwt from 'jsonwebtoken';
+import jwt, { SignOptions } from 'jsonwebtoken';
 import pool from '../config/database';
 
 const router = Router();
@@ -34,13 +34,12 @@ router.post('/register', async (req: Request, res: Response): Promise<void> => {
     );
 
     const user = result.rows[0];
-    const secret = process.env.JWT_SECRET || 'default_secret';
-    const expiresIn = process.env.JWT_EXPIRES_IN || '7d';
+    const secret: string = process.env.JWT_SECRET || 'default_secret';
 
     const token = jwt.sign(
       { id: user.id, email: user.email, role: user.role },
       secret,
-      { expiresIn }
+      { expiresIn: process.env.JWT_EXPIRES_IN || '7d' } as SignOptions
     );
 
     res.status(201).json({ token, user });
@@ -77,13 +76,12 @@ router.post('/login', async (req: Request, res: Response): Promise<void> => {
       return;
     }
 
-    const secret = process.env.JWT_SECRET || 'default_secret';
-    const expiresIn = process.env.JWT_EXPIRES_IN || '7d';
+    const secret: string = process.env.JWT_SECRET || 'default_secret';
 
     const token = jwt.sign(
       { id: user.id, email: user.email, role: user.role },
       secret,
-      { expiresIn }
+      { expiresIn: process.env.JWT_EXPIRES_IN || '7d' } as SignOptions
     );
 
     const userResponse = {
